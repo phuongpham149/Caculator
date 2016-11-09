@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.phuong.caculator.MainActivity">
+
+    <EditText
+        android:id="@+id/edExpress"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/caculator_expression"
+        android:gravity="right"
+        android:inputType="text"
+        android:saveEnabled="true"
+        android:textColor="@color/caculator_edt_expression_and_result"
+        android:textSize="@dimen/caculator_edt_expression" />
+
+    <EditText
+        android:id="@+id/edResult"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:background="@color/caculator_expression"
+        android:enabled="false"
+        android:gravity="right"
+        android:inputType="text"
+        android:saveEnabled="true"
+        android:textColor="@color/caculator_edt_expression_and_result"
+        android:textSize="@dimen/caculator_edt_result" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/caculator_button"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/btnC"
+            style="@style/ButtonInCaculator"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/caculator_btn_C"
+            android:textColor="@color/caculator_btn_C_text_color"
+            tools:ignore="NestedWeights" />
+
+        <TextView
+            android:id="@+id/btnCE"
+            style="@style/ButtonInCaculator"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/caculator_btn_CE" />
+
+        <TextView
+            android:id="@+id/btnDivide"
+            style="@style/ButtonInCaculator"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/caculator_btn_divide" />
+
+        <TextView
+            android:id="@+id/btnMutli"
+            style="@style/ButtonInCaculator"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/caculator_btn_X" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/caculator_button"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/btn1"
+            style="@style/ButtonInCaculator"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/caculator_button_1"
+            tools:ignore="NestedWeights" />
+
+        <TextView
+            android:id="@+id/btn2"
+            style="@style/ButtonInCaculator"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/caculator_button_2" />
+
+        <TextView
+            android:id="@+id/btn3"
+            style="@style/ButtonInCaculator"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/caculator_button_3" />
+
+        <TextView
+            android:id="@+id/btnSub"
+            style="@style/ButtonInCaculator"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/caculator_button_sub" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/caculator_button"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/btn4"
+            style="@style/ButtonInCaculator"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/caculator_button_4"
+            tools:ignore="NestedWeights" />
+
+        <TextView
+            android:id="@+id/btn5"
+            style="@style/ButtonInCaculator"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/caculator_button_5" />
+
+        <TextView
+            android:id="@+id/btn6"
+            style="@style/ButtonInCaculator"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/caculator_button_6" />
+
+        <TextView
+            android:id="@+id/btnAdd"
+            style="@style/ButtonInCaculator"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/caculator_button_add" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:background="@color/caculator_button"
+        android:baselineAligned="false"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:orientation="vertical"
+            tools:ignore="NestedWeights">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/btn7"
+                    style="@style/ButtonInCaculator"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/caculator_button_7" />
+
+                <TextView
+                    android:id="@+id/btn8"
+                    style="@style/ButtonInCaculator"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/caculator_button_8" />
+
+                <TextView
+                    android:id="@+id/btn9"
+                    style="@style/ButtonInCaculator"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/caculator_button_9" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/btn0"
+                    style="@style/ButtonInCaculator"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/caculator_button_0" />
+
+                <TextView
+                    android:id="@+id/btnDot"
+                    style="@style/ButtonInCaculator"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/caculator_button_dot" />
+
+                <TextView
+                    android:id="@+id/btnPercent"
+                    style="@style/ButtonInCaculator"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/caculator_button_percent" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#00aed3">
+
+            <TextView
+                android:id="@+id/btnImplement"
+                style="@style/ButtonInCaculator"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/caculator_button_equal" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>
