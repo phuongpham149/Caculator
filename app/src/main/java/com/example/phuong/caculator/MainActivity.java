@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView mBtnDot;
     private TextView mBtnPercent;
     private TextView mBtnImplement;
-    private static String mExpress = "";
+    private String mExpress = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -133,16 +133,16 @@ public class MainActivity extends AppCompatActivity {
         mBtnDot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                makeExpression(mBtnDot.getText().toString());
+                if(!isCaculator()){
+                    makeExpression(mBtnDot.getText().toString());
+                }
             }
         });
 
         mBtnDivide.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (isCaculator()) {
-                    mBtnDivide.setEnabled(false);
-                } else {
+                if (!isCaculator()) {
                     makeExpression(mBtnDivide.getText().toString());
                 }
             }
@@ -151,9 +151,7 @@ public class MainActivity extends AppCompatActivity {
         mBtnMulti.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (isCaculator()) {
-                    mBtnMulti.setEnabled(false);
-                } else {
+                if (!isCaculator()) {
                     makeExpression("*");
                 }
             }
@@ -162,9 +160,7 @@ public class MainActivity extends AppCompatActivity {
         mBtnSub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (isCaculator()) {
-                    mBtnSub.setEnabled(false);
-                } else {
+                if (!isCaculator()) {
                     makeExpression(mBtnSub.getText().toString());
                 }
             }
@@ -173,9 +169,7 @@ public class MainActivity extends AppCompatActivity {
         mBtnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (isCaculator()) {
-                    mBtnAdd.setEnabled(false);
-                } else {
+                if (!isCaculator()) {
                     makeExpression(mBtnAdd.getText().toString());
                 }
             }
@@ -227,7 +221,8 @@ public class MainActivity extends AppCompatActivity {
 
     public boolean isCaculator() {
         String last = String.valueOf(mExpress.charAt(mExpress.length() - 1));
-        if (last.equals("+") || last.equals("-") || last.equals("*") || last.equals("/")) {
+        String check ="-+/*.";
+        if (check.contains(last)) {
             return true;
         }
         return false;
