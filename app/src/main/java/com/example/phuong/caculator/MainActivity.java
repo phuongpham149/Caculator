@@ -10,7 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    private EditText mEdExpression;
+    private TextView mTvExpression;
     private EditText mEdResult;
     private TextView mBtnC;
     private TextView mBtnCE;
@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mEdExpression = (EditText) findViewById(R.id.edExpress);
+        mTvExpression = (TextView) findViewById(R.id.tvExpress);
         mEdResult = (EditText) findViewById(R.id.edResult);
         mBtn0 = (TextView) findViewById(R.id.btn0);
         mBtn1 = (TextView) findViewById(R.id.btn1);
@@ -140,35 +140,51 @@ public class MainActivity extends AppCompatActivity {
         mBtnDivide.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                makeExpression(mBtnDivide.getText().toString());
+                if (isCaculator()) {
+                    mBtnDivide.setEnabled(false);
+                } else {
+                    makeExpression(mBtnDivide.getText().toString());
+                }
             }
         });
 
         mBtnMulti.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                makeExpression("*");
+                if (isCaculator()) {
+                    mBtnMulti.setEnabled(false);
+                } else {
+                    makeExpression("*");
+                }
             }
         });
 
         mBtnSub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                makeExpression(mBtnSub.getText().toString());
+                if (isCaculator()) {
+                    mBtnSub.setEnabled(false);
+                } else {
+                    makeExpression(mBtnSub.getText().toString());
+                }
             }
         });
 
         mBtnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                makeExpression(mBtnAdd.getText().toString());
+                if (isCaculator()) {
+                    mBtnAdd.setEnabled(false);
+                } else {
+                    makeExpression(mBtnAdd.getText().toString());
+                }
             }
         });
 
         mBtnCE.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mEdExpression.setText("");
+                mTvExpression.setText("");
                 mEdResult.setText("");
                 mExpress = "";
             }
@@ -177,29 +193,55 @@ public class MainActivity extends AppCompatActivity {
         mBtnC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (mEdExpression.length() >= 1) {
-                    mExpress = mExpress.substring(0, mEdExpression.length() - 1);
-                    mEdExpression.setText(mExpress);
-                }
+                deleteLastCharacter();
             }
         });
-
-        mEdExpression.setInputType(InputType.TYPE_NULL);
-        if (android.os.Build.VERSION.SDK_INT >= 11) {
-            mEdExpression.setRawInputType(InputType.TYPE_CLASS_TEXT);
-            mEdExpression.setTextIsSelectable(true);
-        }
 
         mBtnImplement.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mEdResult.setText(String.valueOf(Caculator.computeMathExpression(mEdExpression.getText().toString())));
+                if (mTvExpression.getText().toString().equals("")) {
+                    mEdResult.setText("0.00");
+                } else {
+                    if (isCaculator()) {
+                        deleteLastCharacter();
+                        implementCaculator();
+                    } else {
+                        try {
+                            implementCaculator();
+                        } catch (Exception e) {
+                            mTvExpression.setText("");
+                            mEdResult.setText("Error");
+                        }
+                    }
+                }
+
             }
         });
     }
 
     public void makeExpression(String number) {
         mExpress += number;
-        mEdExpression.setText(mExpress);
+        mTvExpression.setText(mExpress);
+    }
+
+    public boolean isCaculator() {
+        String last = String.valueOf(mExpress.charAt(mExpress.length() - 1));
+        if (last.equals("+") || last.equals("-") || last.equals("*") || last.equals("/")) {
+            return true;
+        }
+        return false;
+    }
+
+    public void deleteLastCharacter() {
+        if (mTvExpression.length() >= 1) {
+            mExpress = mExpress.substring(0, mTvExpression.length() - 1);
+            mTvExpression.setText(mExpress);
+        }
+    }
+
+    public void implementCaculator() {
+        mEdResult.setText(String.valueOf(Caculator.computeMathExpression(mTvExpression.getText().toString())));
+        mExpress = mEdResult.getText().toString();
     }
 }
