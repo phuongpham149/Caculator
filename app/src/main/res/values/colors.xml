@@ -8,4 +8,6 @@
     <color name="caculator_btn_C_text_color">#00aed3</color>
     <color name="caculator_btn_text_color">#ffffff</color>
     <color name="caculator_edt_expression_and_result">#ffffff</color>
+    <color name="caculator_btn_text_color_press">#141827</color>
+    <color name="caculator_btn_implement_background">#00aed3</color>
 </resources>

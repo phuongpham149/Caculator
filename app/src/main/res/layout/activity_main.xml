@@ -13,7 +13,7 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:background="@color/caculator_expression"
-        android:gravity="right"
+        android:gravity="end"
         android:inputType="text"
         android:saveEnabled="true"
         android:textColor="@color/caculator_edt_expression_and_result"
@@ -26,7 +26,7 @@
         android:layout_weight="2"
         android:background="@color/caculator_expression"
         android:enabled="false"
-        android:gravity="right"
+        android:gravity="end"
         android:inputType="text"
         android:saveEnabled="true"
         android:textColor="@color/caculator_edt_expression_and_result"
@@ -36,7 +36,6 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="@color/caculator_button"
         android:orientation="horizontal">
 
         <TextView
@@ -78,7 +77,6 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="@color/caculator_button"
         android:orientation="horizontal">
 
         <TextView
@@ -119,7 +117,6 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="@color/caculator_button"
         android:orientation="horizontal">
 
         <TextView
@@ -160,7 +157,6 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
-        android:background="@color/caculator_button"
         android:baselineAligned="false"
         android:orientation="horizontal">
 
@@ -237,8 +233,7 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="#00aed3">
+            android:layout_weight="1">
 
             <TextView
                 android:id="@+id/btnImplement"
@@ -246,9 +241,8 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="@color/caculator_btn_implement_background"
                 android:text="@string/caculator_button_equal" />
         </LinearLayout>
     </LinearLayout>
-
-
 </LinearLayout>
