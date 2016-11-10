@@ -245,6 +245,4 @@
                 android:text="@string/caculator_button_equal" />
         </LinearLayout>
     </LinearLayout>
-
-
 </LinearLayout>
